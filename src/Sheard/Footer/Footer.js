@@ -13,7 +13,8 @@ const Footer = () => {
         }}
 
         className="footer  p-10  ">
-            
+           
+
   <div>
     <span className="footer-title">Services</span> 
     <Link to = ''className="link link-hover">Branding</Link>
