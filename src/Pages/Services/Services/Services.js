@@ -1,4 +1,4 @@
-import { data } from 'autoprefixer';
+
 import React, { useEffect, useState } from 'react';
 import SingleService from '../SingleService/SingleService';
 

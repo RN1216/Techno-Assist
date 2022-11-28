@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
+import { AuthContext } from './../../context/AuthProvider';
 
 const Navbar = () => {
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
   return (
     <div className="navbar  bg-base-100">
       <div className="navbar-start">
@@ -28,7 +35,7 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link>Home</Link>
+              <Link to='/'>Home</Link>
             </li>
             <li tabIndex={0}>
               <Link className="justify-between">
@@ -56,7 +63,7 @@ const Navbar = () => {
               </ul>
             </li>
             <li>
-              <Link>Blog</Link>
+              <Link to="/blog">Blog</Link>
             </li>
           </ul>
         </div>
@@ -69,7 +76,7 @@ const Navbar = () => {
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0 ">
           <li>
-            <Link>Home</Link>
+            <Link to='/'>Home</Link>
           </li>
           <li tabIndex={0} className="dropdown dropdown-hover">
             <Link>
@@ -97,8 +104,30 @@ const Navbar = () => {
             </ul>
           </li>
           <li>
-            <Link>Blog</Link>
+            <Link to="/blog">Blog</Link>
           </li>
+          {user?.email ? (
+        <>
+         
+          <li className="font-semibold">
+            
+            <button onClick={handleLogOut} className="btn-ghost">
+              {" "}
+              Sign Out
+            </button>
+            <span className="mx-auto text-orange-500"> {user?.displayName} </span>
+          </li>
+        </>
+      ) : (
+        <>
+          <li className="font-semibold">
+            <Link to="/register">Sign Up</Link>
+          </li>
+          <li className="font-semibold">
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
         </ul>
       </div>
     </div>
