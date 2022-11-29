@@ -126,7 +126,9 @@ const Navbar = () => {
           </li>
           {user?.email ? (
         <>
-         
+         <li className="font-semibold">
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
           <li className="font-semibold">
             
             <button onClick={handleLogOut} className="btn-ghost">
@@ -138,6 +140,7 @@ const Navbar = () => {
         </>
       ) : (
         <>
+          
           <li className="font-semibold">
             <Link to="/register">Sign Up</Link>
           </li>
