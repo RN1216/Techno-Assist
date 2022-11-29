@@ -6,6 +6,8 @@ import Blog from './../../Pages/Blog/Blog';
 import Login from './../../Pages/Login/Login';
 import Register from './../../Pages/Register/Register';
 import PrivateRoutes from './../PrivateRoutes/PrivateRoutes';
+import DashBoard from './../../Layout/DashBoard';
+import DashBoardLayout from './../../Pages/DashBoardLayout/DashBoardLayout';
 
 const router = createBrowserRouter([
 
@@ -34,6 +36,16 @@ const router = createBrowserRouter([
                 path:'/register',
                 element:<Register></Register>
             },
+        ]
+    },
+    {
+        path:'/dashboard',
+        element:<PrivateRoutes><DashBoard></DashBoard></PrivateRoutes>,
+        children:[
+            {
+                path:'/dashboard',
+                element:<DashBoardLayout></DashBoardLayout>
+            }
         ]
     }
 ])

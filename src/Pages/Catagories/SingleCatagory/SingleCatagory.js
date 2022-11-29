@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SingleCatagory = ({item}) => {
+const SingleCatagory = ({item,setServiceProduct}) => {
  
     const {image_url,title,seller,resale_price,original_price,years_of_use} = item;
     return (
@@ -18,7 +18,11 @@ const SingleCatagory = ({item}) => {
     <p>Location: {seller.location}</p>
     <p>Post time: {seller.published_date}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Book Now</button>
+      <label 
+      onClick={()=>setServiceProduct(item)}
+      htmlFor="bookingModal" 
+      className="btn btn-primary">
+        Book Now</label>
     </div>
   </div>
 </div>

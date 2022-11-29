@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import SingleCatagory from "../SingleCatagory/SingleCatagory";
 import servicesBanner from '../../../assets/services/serviceBanner.jpg'
+import BookingModal from "../../../Components/Slider/BookingModal/BookingModal";
 
 const Catagories = () => {
 
 
 const [serviceItem, setServiceItem] = useState([]);
+const [serviceProduct, setServiceProduct] = useState(null)
 
 useEffect(()=>{
   fetch(`http://localhost:5000/catagories`)
@@ -24,8 +26,14 @@ useEffect(()=>{
                serviceItem.map(item=><SingleCatagory
                key={item.id}
                item={item}
+               setServiceProduct={setServiceProduct}
                ></SingleCatagory>)
              }
+             {serviceProduct &&
+              <BookingModal
+             serviceProduct={serviceProduct}
+             setServiceProduct={setServiceProduct}
+             ></BookingModal>}
             </div>
           </div>
             
