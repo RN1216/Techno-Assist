@@ -30,6 +30,7 @@ const Navbar = () => {
               />
             </svg>
           </label>
+          
           <ul
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
@@ -66,13 +67,27 @@ const Navbar = () => {
               <Link to="/blog">Blog</Link>
             </li>
           </ul>
+          
         </div>
+        
         <img src={logo} alt="" />
         <Link className=" normal-case text-xl">
           Techno{" "}
           <span className=" normal-case text-xl text-orange-500">Assist</span>
         </Link>
       </div>
+      <label htmlFor="my-drawer-2" 
+      className="btn btn-ghost navbar-end drawer-button text-orange-500 lg:hidden ">
+      <svg
+                  className="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                </svg>
+        My Booking</label>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0 ">
           <li>
@@ -104,6 +119,9 @@ const Navbar = () => {
             </ul>
           </li>
           <li>
+            
+          </li>
+          <li>
             <Link to="/blog">Blog</Link>
           </li>
           {user?.email ? (
@@ -129,6 +147,7 @@ const Navbar = () => {
         </>
       )}
         </ul>
+        
       </div>
     </div>
   );
