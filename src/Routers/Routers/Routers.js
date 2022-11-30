@@ -10,6 +10,7 @@ import DashBoard from "./../../Layout/DashBoard";
 import MyBooking from "../../Pages/DashBoardLayout/MyBooking/MyBooking";
 import AllUsers from "../../Pages/DashBoardLayout/AllUsers";
 import AdminRouters from "../AdminRouter/AdminRouters";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
 
@@ -48,7 +49,13 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path:'*',
+        element:<ErrorPage></ErrorPage>
+    }
+
     ],
+    
   },
 
   //***********Admin Panel
