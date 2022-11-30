@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
-import { AuthContext } from './../../context/AuthProvider';
+import { AuthContext } from "./../../context/AuthProvider";
 
 const Navbar = () => {
-
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
@@ -13,6 +12,9 @@ const Navbar = () => {
   return (
     <div className="navbar  bg-base-100">
       <div className="navbar-start">
+
+                          {/* For Mobile Screen */}
+
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -30,13 +32,13 @@ const Navbar = () => {
               />
             </svg>
           </label>
-          
+
           <ul
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to='/'>Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li tabIndex={0}>
               <Link className="justify-between">
@@ -68,56 +70,60 @@ const Navbar = () => {
             </li>
 
             {user?.email ? (
-        <>
-         <li className="font-semibold">
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li className="font-semibold">
-            
-            <button onClick={handleLogOut} className="btn-ghost">
-              {" "}
-              Sign Out
-            </button>
-            <span className="mx-auto text-orange-500"> {user?.displayName} </span>
-          </li>
-        </>
-      ) : (
-        <>
-          
-          <li className="font-semibold">
-            <Link to="/register">Sign Up</Link>
-          </li>
-          <li className="font-semibold">
-            <Link to="/login">Login</Link>
-          </li>
-        </>
-      )}
+              <>
+                <li className="font-semibold">
+                  <Link to="/dashboard">Dashboard</Link>
+                </li>
+                <li className="font-semibold">
+                  <button onClick={handleLogOut} className="btn-ghost">
+                    {" "}
+                    Sign Out
+                  </button>
+                  <span className="mx-auto text-orange-500">
+                    {" "}
+                    {user?.displayName}{" "}
+                  </span>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="font-semibold">
+                  <Link to="/register">Sign Up</Link>
+                </li>
+                <li className="font-semibold">
+                  <Link to="/login">Login</Link>
+                </li>
+              </>
+            )}
           </ul>
-          
         </div>
-        
+                   {/* For Large Screen */}
+
         <img src={logo} alt="" />
         <Link className=" normal-case text-xl">
           Techno{" "}
           <span className=" normal-case text-xl text-orange-500">Assist</span>
         </Link>
       </div>
-      <label htmlFor="my-drawer-2" 
-      className="btn btn-ghost navbar-end drawer-button text-orange-500 lg:hidden ">
-      <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                </svg>
-        My Booking</label>
+      <label
+        htmlFor="my-drawer-2"
+        className="btn btn-ghost navbar-end drawer-button text-orange-500 lg:hidden "
+      >
+        <svg
+          className="fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+        </svg>
+        My Booking
+      </label>
       <div className="navbar-end hidden lg:flex">
         <ul className="menu menu-horizontal p-0 ">
           <li>
-            <Link to='/'>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li tabIndex={0} className="dropdown dropdown-hover">
             <Link>
@@ -144,39 +150,37 @@ const Navbar = () => {
               </li>
             </ul>
           </li>
-          <li>
-            
-          </li>
+          <li></li>
           <li>
             <Link to="/blog">Blog</Link>
           </li>
           {user?.email ? (
-        <>
-         <li className="font-semibold">
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li className="font-semibold">
-            
-            <button onClick={handleLogOut} className="btn-ghost">
-              {" "}
-              Sign Out
-            </button>
-            <span className="mx-auto text-orange-500"> {user?.displayName} </span>
-          </li>
-        </>
-      ) : (
-        <>
-          
-          <li className="font-semibold">
-            <Link to="/register">Sign Up</Link>
-          </li>
-          <li className="font-semibold">
-            <Link to="/login">Login</Link>
-          </li>
-        </>
-      )}
+            <>
+              <li className="font-semibold">
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              <li className="font-semibold">
+                <button onClick={handleLogOut} className="btn-ghost">
+                  {" "}
+                  Sign Out
+                </button>
+                <span className="mx-auto text-orange-500">
+                  {" "}
+                  {user?.displayName}{" "}
+                </span>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="font-semibold">
+                <Link to="/register">Sign Up</Link>
+              </li>
+              <li className="font-semibold">
+                <Link to="/login">Login</Link>
+              </li>
+            </>
+          )}
         </ul>
-        
       </div>
     </div>
   );
