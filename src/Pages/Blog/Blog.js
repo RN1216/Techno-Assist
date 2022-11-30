@@ -66,14 +66,16 @@ const Blog = () => {
             performed before other testing methods such as integration testing.
             Unit tests are typically isolated to ensure a unit does not rely on
             any external code or functions. Testing can be done manually but is
-            often automated.<br></br><span className="font-bold"> How unit tests work </span><br></br>A unit test typically comprises
-            of three stages: plan, cases and scripting and the unit test itself.
-            In the first step, the unit test is prepared and reviewed. The next
-            step is for the test cases and scripts to be made, then the code is
-            tested. Test-driven development requires that developers first write
-            failing unit tests. Then they write code and refactor the
-            application until the test passes. TDD typically results in an
-            explicit and predictable code base.
+            often automated.<br></br>
+            <span className="font-bold"> How unit tests work </span>
+            <br></br>A unit test typically comprises of three stages: plan,
+            cases and scripting and the unit test itself. In the first step, the
+            unit test is prepared and reviewed. The next step is for the test
+            cases and scripts to be made, then the code is tested. Test-driven
+            development requires that developers first write failing unit tests.
+            Then they write code and refactor the application until the test
+            passes. TDD typically results in an explicit and predictable code
+            base.
           </p>
         </div>
       </div>
@@ -83,20 +85,36 @@ const Blog = () => {
       >
         <input type="checkbox" />
         <div className="collapse-title text-xl font-medium">
-          How does NodeJS handle multiple requests at the same time?
+          difference between react vs angular vs vue
         </div>
         <div className="collapse-content">
           <p>
-            NodeJS receives multiple client requests and places them into
-            EventQueue. NodeJS is built with the concept of event-driven
-            architecture. NodeJS has its own EventLoop which is an infinite loop
-            that receives requests and processes them. EventLoop is the listener
-            for the EventQueue. <br />
-            If NodeJS can process the request without I/O blocking then the
-            event loop would itself process the request and sends the response
-            back to the client by itself. But, it is possible to process
-            multiple requests parallelly using the NodeJS cluster module or
-            worker_threads module.
+            <span className="font-bold">React vs Vue</span><br /> While Talking about Vue JS vs React, both front-end
+            tools are used to build web applications for enterprises. However,
+            both open-source tools have their own use cases; we will explore
+            comprehensive differences - React JS vs Vue JS. Vue is a popular
+            progressive, open-source framework for developing complex user
+            interfaces, while React is a JavaScript library for building web
+            development for interactive elements on UIs. React is also used to
+            develop SPAs and mobile apps. Vue JS is more oriented to novice
+            developers, while React requires in-depth knowledge of JavaScript.
+            React uses a virtual DOM (copy of the actual DOM) to interact with
+            HTML files, but every element is represented as a JavaScript object.
+            Vue has two-way binding and uses a virtual DOM. <br />
+            <span className="font-bold">Angular vs Vue</span><br /> But now a question comes – which one is better, Vue
+            or Angular? As we have seen a comparison between Angular JS vs React
+            JS in the above section, let’s understand how Vue and Angular differ
+            from each other and which one is a better framework for you. Angular
+            is a TypeScript-based structure framework, while Vue is a
+            progressive lightweight framework. Both - Angular JS and React JS
+            frameworks are used to create web interfaces for front end
+            development. Angular is Google’s matured and advanced JavaScript
+            framework based on TypeScript, whereas Vue is a progressive
+            open-source front-end JavaScript framework created by Evan You.
+            While comparing Vue JS vs Angular, Vue is known for its clean
+            architecture and its elegant designs. On the other hand, Angular is
+            considered for many organizations due to its vast functionality and
+            high performance..
           </p>
         </div>
       </div>
