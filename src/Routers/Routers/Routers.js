@@ -8,6 +8,8 @@ import Register from './../../Pages/Register/Register';
 import PrivateRoutes from './../PrivateRoutes/PrivateRoutes';
 import DashBoard from './../../Layout/DashBoard';
 import MyBooking from "../../Pages/DashBoardLayout/MyBooking/MyBooking";
+import AllUsers from "../../Pages/DashBoardLayout/AllUsers";
+import AdminRouters from "../AdminRouter/AdminRouters";
 
 
 const router = createBrowserRouter([
@@ -46,7 +48,11 @@ const router = createBrowserRouter([
             {
                 path:'/dashboard',
                 element:<MyBooking></MyBooking>
-            }
+            },
+            {
+                path:'/dashboard/allusers',
+                element:<AdminRouters><AllUsers></AllUsers></AdminRouters>
+            },
         ]
     }
 ])
