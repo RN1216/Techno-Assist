@@ -4,14 +4,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast} from "react-toast";
 import regImg from "../../assets/registration/reg.jpg";
 import { AuthContext } from './../../context/AuthProvider';
+import useToken from './../../Hooks/useToken';
 
 
 const Register = () => {
   const { signUp, googleLogin, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [createUserEmail, setCreateUserEmail] = useState('');
+  const [token] = useToken(createUserEmail);
   const navigate = useNavigate();
-  const wave = () => toast('Hi there 👋')
+ 
+  if(token){
+    navigate('/')
+  }
 
   const googleProvider = new GoogleAuthProvider();
 
@@ -83,9 +89,13 @@ const Register = () => {
     .then(res => res.json())
     .then(data =>{
       console.log(data);
-      navigate('/')
+      setCreateUserEmail(email);
     })
   }
+
+  
+
+
   return (
     <div className="hero my-20">
       <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
