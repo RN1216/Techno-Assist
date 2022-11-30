@@ -1,7 +1,7 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toast";
+import { toast} from "react-toast";
 import regImg from "../../assets/registration/reg.jpg";
 import { AuthContext } from './../../context/AuthProvider';
 
@@ -38,7 +38,7 @@ const Register = () => {
         setSuccess(true);
         navigate("/");
         form.reset();
-        handleUpdateUserProfile(name);
+        handleUpdateUserProfile(name,email);
       })
       .catch((error) => {
         console.error(error);
@@ -58,15 +58,34 @@ const Register = () => {
         setError(error.message);
       });
   };
-  const handleUpdateUserProfile = (name) => {
+  const handleUpdateUserProfile = (name,email) => {
     const profile = {
       displayName: name,
      
     };
     updateUserProfile(profile)
-      .then(() => {})
+      .then(() => {
+        
+       saveUser(name,email)
+      })
+      
       .catch((error) => console.error(error));
   };
+  const saveUser = (name , email) =>{
+    const user = {name ,email};
+    fetch('http://localhost:5000/users',{
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json'
+      },
+      body:JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      console.log(data);
+      navigate('/')
+    })
+  }
   return (
     <div className="hero my-20">
       <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
@@ -135,10 +154,7 @@ const Register = () => {
             </div>
           </form>
           <p className="text-danger">{error}</p>
-          {success && <div>
-      <button onClick={wave}>Say hi!</button>
-      <ToastContainer />
-    </div>}
+          {success && toast('sign up')}
           <p className=" w-full text-center pb-5 ">
             Already have an account?
             <Link className="text-purple-600 " to="/login">
