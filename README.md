@@ -1,5 +1,8 @@
 Website name : Techno Assist
 live server link : https://techno-assist.web.app
+Admin panel access- 
+email - we4@gmail.com
+password-123456
 
 Purpose of this project-
 
