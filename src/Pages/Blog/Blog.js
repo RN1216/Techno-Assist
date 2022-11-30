@@ -24,50 +24,13 @@ const Blog = () => {
       >
         <input type="checkbox" />
         <div className="collapse-title text-xl font-medium">
-          What is JWT, and how does it work?
+        how does prototypical inheritance work?
         </div>
         <div className="collapse-content">
           <p>
-            A JSON web token(JWT) is JSON Object which is used to securely
-            transfer information over the web(between two parties). It can be
-            used for an authentication system and can also be used for
-            information exchange.The token is mainly composed of header,
-            payload, signature. These three parts are separated by dots(.). JWT
-            defines the structure of information we are sending from one party
-            to the another, and it comes in two forms – Serialized,
-            Deserialized.
+          Every object with its methods and properties contains an internal and hidden property known as [[Prototype]]. The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and Object.setPrototypeOf. Nowadays, in modern language, it is being set using __proto__.
           </p>
-          <p>
-            JWTs differ from other web tokens in that they contain a set of
-            claims. Claims are used to transmit information between two parties.
-            What these claims are depends on the use case at hand. For example,
-            a claim may assert who issued the token, how long it is valid for,
-            or what permissions the client has been granted.
-            <br />
-            <br />
-            A JWT is a string made up of three parts, separated by dots (.), and
-            serialized using base64. In the most common serialization format,
-            compact serialization, the JWT looks something like this:
-            xxxxx.yyyyy.zzzzz.
-            <br />
-            <br />
-            Once decoded, you will get two JSON strings:
-            <br />
-            The header and the payload.
-            <br />
-            The signature. <br />
-            <br />
-            The JOSE (JSON Object Signing and Encryption) header contains the
-            type of token — JWT in this case — and the signing algorithm. <br />
-            The payload contains the claims. This is displayed as a JSON string,
-            usually containing no more than a dozen fields to keep the JWT
-            compact. This information is typically used by the server to verify
-            that the user has permission to perform the action they are
-            requesting. There are no mandatory claims for a JWT, but overlaying
-            standards may make claims mandatory. For example, when using JWT as
-            bearer access token under OAuth2.0, iss, sub, aud, and exp must be
-            present. some are more common than others
-          </p>
+          
         </div>
       </div>
       <div
