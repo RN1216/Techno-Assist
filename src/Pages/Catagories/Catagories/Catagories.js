@@ -10,7 +10,7 @@ const [serviceItem, setServiceItem] = useState([]);
 const [serviceProduct, setServiceProduct] = useState(null)
 
 useEffect(()=>{
-  fetch(`http://localhost:5000/catagories`)
+  fetch(`https://techno-assistance-server.vercel.app/catagories`)
     .then(res =>res.json())
     .then(data=>setServiceItem(data))
 },[])

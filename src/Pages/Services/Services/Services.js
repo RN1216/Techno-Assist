@@ -7,7 +7,7 @@ const Services = () => {
     const [servicesCatagori ,setServicesCatagori] = useState([]);
 
     useEffect( ()=>{
-        fetch('http://localhost:5000/services')
+        fetch('https://techno-assistance-server.vercel.app/services')
         .then(res =>res.json())
         .then(data=>setServicesCatagori(data))
     },[])

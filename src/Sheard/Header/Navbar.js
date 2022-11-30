@@ -53,19 +53,45 @@ const Navbar = () => {
               </Link>
               <ul className="p-2 dropdown-content menu shadow bg-base-100 rounded-box w-45">
                 <li>
-                  <Link to="">Monitor & Flat Screen</Link>
+                  <Link to={`/services/:id`}>Monitor & Flat Screen</Link>
                 </li>
                 <li>
-                  <Link to="">CPU</Link>
+                  <Link to={`/services/:id`}>CPU</Link>
                 </li>
                 <li>
-                  <Link to="">Others Accessories</Link>
+                  <Link to={`/services/:id`}>Others Accessories</Link>
                 </li>
               </ul>
             </li>
             <li>
               <Link to="/blog">Blog</Link>
             </li>
+
+            {user?.email ? (
+        <>
+         <li className="font-semibold">
+            <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li className="font-semibold">
+            
+            <button onClick={handleLogOut} className="btn-ghost">
+              {" "}
+              Sign Out
+            </button>
+            <span className="mx-auto text-orange-500"> {user?.displayName} </span>
+          </li>
+        </>
+      ) : (
+        <>
+          
+          <li className="font-semibold">
+            <Link to="/register">Sign Up</Link>
+          </li>
+          <li className="font-semibold">
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
           </ul>
           
         </div>
@@ -108,13 +134,13 @@ const Navbar = () => {
             </Link>
             <ul className="p-2 dropdown-content menu shadow bg-base-100 rounded-box w-45">
               <li>
-                <Link to="">Monitor & Flat Screen</Link>
+                <Link to={`/services/:id`}>Monitor & Flat Screen</Link>
               </li>
               <li>
-                <Link to="">CPU</Link>
+                <Link to={`/services/:id`}>CPU</Link>
               </li>
               <li>
-                <Link to="">Others Accessories</Link>
+                <Link to={`/services/:id`}>Others Accessories</Link>
               </li>
             </ul>
           </li>
