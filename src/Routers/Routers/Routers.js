@@ -81,6 +81,10 @@ const router = createBrowserRouter([
           </AdminRouters>
         ),
       },
+      {
+        path:'*',
+        element:<ErrorPage></ErrorPage>
+    }
     ],
   },
 ]);
